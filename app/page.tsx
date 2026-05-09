@@ -1,3 +1,4 @@
+"use client"
 import Image from "next/image";
 import {getStories} from "@/api.service"
 import {prisma} from "@/prisma.client"

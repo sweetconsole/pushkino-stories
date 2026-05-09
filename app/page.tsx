@@ -1,9 +1,17 @@
 import Image from "next/image";
 import {getStories} from "@/api.service"
 import {prisma} from "@/prisma.client"
+import {Story} from "@/app/generated/prisma/client"
 
 export default async function Home() {
-  const stories = await prisma.story.findMany({})
+  let stories: Array<Story> = []
+
+  try {
+    stories = await prisma.story.findMany({})
+  } catch (error) {
+    console.error('Database connection failed:', error)
+    // Во время сборки stories останется пустым массивом
+  }
 
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">

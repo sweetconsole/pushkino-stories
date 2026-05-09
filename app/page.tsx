@@ -1,6 +1,8 @@
 
 import {Story} from "@/app/generated/prisma/client"
 import {prisma} from "@/prisma.client"
+import { collection, getDocs } from "firebase/firestore"
+import {db} from "@/firebase/client"
 export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
@@ -17,6 +19,17 @@ export default async function Home() {
     console.error('Database connection failed:', error)
     // Во время сборки stories останется пустым массивом
   }
+
+  const collectionRef = collection(db, 'stories');
+
+// Получение всех документов из коллекции
+  const querySnapshot = await getDocs(collectionRef);
+
+// Итерация по документам и вывод их данных
+  querySnapshot.forEach(doc => {
+    console.log(doc.id, '=>', doc.data());
+  });
+
 
   console.log(stories)
   return (

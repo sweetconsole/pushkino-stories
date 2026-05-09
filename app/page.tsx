@@ -20,17 +20,6 @@ export default async function Home() {
     // Во время сборки stories останется пустым массивом
   }
 
-  const collectionRef = collection(db, 'stories');
-
-// Получение всех документов из коллекции
-  const querySnapshot = await getDocs(collectionRef);
-
-// Итерация по документам и вывод их данных
-  querySnapshot.forEach(doc => {
-    console.log(doc.id, '=>', doc.data());
-  });
-
-
   console.log(stories)
   return (
     <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">

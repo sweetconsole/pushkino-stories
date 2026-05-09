@@ -1,5 +1,3 @@
-"use client"
-
 
 import { type FC } from "react"
 import {Story} from "@/app/generated/prisma/client"

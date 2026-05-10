@@ -1,38 +1,15 @@
-
-import {Story} from "@/app/generated/prisma/client"
-import {prisma} from "@/prisma.client"
-import { collection, getDocs } from "firebase/firestore"
-import {db} from "@/firebase/client"
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+import { Intro, Stories } from "@/components/widgets"
 
 export default async function Home() {
+	return (
+		<main className="wrapper py-6 sm:py-10 px-4">
+			<Intro />
 
-  let stories: Array<Story> = []
+			<h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">
+				Все истории
+			</h2>
 
-  try {
-    stories = await prisma.story.findMany({})
-
-    console.log("True")
-
-  } catch (error) {
-    console.error('Database connection failed:', error)
-    // Во время сборки stories останется пустым массивом
-  }
-
-  console.log(stories)
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <h1>Stories</h1>
-
-      <ul>
-        {stories.map((story, index) => (
-          <li key={index}>
-            <h2>{story.title}</h2>
-            <p>{story.description}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+			<Stories />
+		</main>
+	)
 }

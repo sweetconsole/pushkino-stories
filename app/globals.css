@@ -1,21 +1,117 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-	--background: #ffffff;
-	--foreground: #171717;
+	--background: 40 50% 97%;
+	--foreground: 25 35% 20%;
+	--card: 0 0% 100%;
+	--card-foreground: 25 35% 20%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 25 35% 20%;
+	--primary: 18 75% 60%;
+	--primary-foreground: 40 50% 98%;
+	--primary-glow: 30 90% 70%;
+	--secondary: 160 40% 70%;
+	--secondary-foreground: 160 40% 18%;
+	--muted: 40 30% 92%;
+	--muted-foreground: 25 20% 45%;
+	--accent: 200 70% 75%;
+	--accent-foreground: 200 50% 20%;
+	--destructive: 0 75% 60%;
+	--destructive-foreground: 0 0% 100%;
+	--border: 30 30% 88%;
+	--input: 30 30% 90%;
+	--ring: 18 75% 60%;
+	--radius: 1rem;
+	--gradient-warm: linear-gradient(135deg, hsl(40 70% 92%), hsl(30 80% 88%));
+	--gradient-hero: linear-gradient(135deg, hsl(30 90% 85%), hsl(200 70% 85%));
+	--shadow-soft: 0 8px 30px -8px hsl(25 40% 30% / .15);
+	--shadow-card: 0 4px 20px -6px hsl(25 40% 30% / .1);
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--background: #0a0a0a;
-		--foreground: #ededed;
-	}
+* {
+	border-color: hsl(var(--border))
 }
 
 body {
-	color: var(--foreground);
-	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
+	background-color: hsl(var(--background));
+	color: hsl(var(--foreground));
+	font-family: Comfortaa, Nunito, system-ui, sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: Comfortaa, Nunito, system-ui, sans-serif;
+	font-weight: 700;
+}
+
+@theme {
+	--color-background: hsl(40 50% 97%);
+	--color-foreground: hsl(25 35% 20%);
+	--color-card: hsl(0 0% 100%);
+	--color-card-foreground: hsl(25 35% 20%);
+	--color-popover: hsl(0 0% 100%);
+	--color-popover-foreground: hsl(25 35% 20%);
+	--color-primary: hsl(18 75% 60%);
+	--color-primary-foreground: hsl(40 50% 98%);
+	--color-primary-glow: hsl(30 90% 70%);
+	--color-secondary: hsl(160 40% 70%);
+	--color-secondary-foreground: hsl(160 40% 18%);
+	--color-muted: hsl(40 30% 92%);
+	--color-muted-foreground: hsl(25 20% 45%);
+	--color-accent: hsl(200 70% 75%);
+	--color-accent-foreground: hsl(200 50% 20%);
+	--color-destructive: hsl(0 75% 60%);
+	--color-destructive-foreground: hsl(0 0% 100%);
+	--color-border: hsl(30 30% 88%);
+	--color-input: hsl(30 30% 90%);
+	--color-ring: hsl(18 75% 60%);
+
+	--radius: 1rem;
+	--radius-lg: var(--radius);
+	--radius-md: calc(var(--radius) - 2px);
+	--radius-sm: calc(var(--radius) - 4px);
+
+	--font-family-sans: Comfortaa, Nunito, system-ui, sans-serif;
+
+	--animate-accordion-down: accordion-down 0.2s ease-out;
+	--animate-accordion-up: accordion-up 0.2s ease-out;
+
+	--breakpoint-sm: 640px;
+	--breakpoint-md: 768px;
+	--breakpoint-lg: 1024px;
+	--breakpoint-xl: 1400px;
+
+	--shadow-soft: 0 8px 30px -8px hsl(25 40% 30% / 0.15);
+	--shadow-card: 0 4px 20px -6px hsl(25 40% 30% / 0.1);
+
+	--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	--shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+@layer utilities {
+	.gradient-warm {
+		background-image: linear-gradient(135deg, hsl(40 70% 92%), hsl(30 80% 88%));
+	}
+
+	.gradient-hero {
+		background-image: linear-gradient(135deg, hsl(30 90% 85%), hsl(200 70% 85%));
+	}
+}
+
+@layer components {
+	.wrapper {
+		width: 100%;
+		max-width: 1400px;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+
+	@media (min-width: 1400px) {
+		.wrapper {
+			max-width: 1400px;
+		}
+	}
 }

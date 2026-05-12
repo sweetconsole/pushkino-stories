@@ -25,6 +25,7 @@ const Intro: FC = () => {
 			<Image
 				className="md:absolute relative bottom-0 left-1/2 md:right-24 lg:right-36 -translate-x-1/2 md:translate-0 md:left-auto"
 				src="/intro.png"
+				loading="eager"
 				alt="error loading..."
 				width={128 * 2.5}
 				height={160 * 2.5}

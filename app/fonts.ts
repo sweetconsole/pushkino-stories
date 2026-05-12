@@ -1,20 +1,13 @@
-import { Jaro, Geist, Staatliches } from "next/font/google"
+import { Comfortaa, Nunito } from "next/font/google"
 
-export const jaro = Jaro({
-	subsets: ["latin"],
-	variable: "--font-jaro",
+export const comfortaa = Comfortaa({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-comfortaa",
 	display: "swap"
 })
 
-export const geist = Geist({
-	subsets: ["latin"],
-	variable: "--font-geist",
-	display: "swap"
-})
-
-export const staatliches = Staatliches({
-	weight: "400",
-	subsets: ["latin"],
-	variable: "--font-staatliches",
+export const nunito = Nunito({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-nunito",
 	display: "swap"
 })

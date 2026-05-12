@@ -1,1 +1,1 @@
-export { default as AddStoryForm } from "./AddStoryForm/AddStoryForm"
+export { default as AddStoryForm } from "./AddStoryForm"

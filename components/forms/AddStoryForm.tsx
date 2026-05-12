@@ -76,7 +76,9 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.title && (
-					<p className="text-red-500 text-sm mt-1">{errors.title.message}</p>
+					<p className="text-destructive text-sm mt-1">
+						{errors.title.message}
+					</p>
 				)}
 			</div>
 
@@ -98,7 +100,9 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.author && (
-					<p className="text-red-500 text-sm mt-1">{errors.author.message}</p>
+					<p className="text-destructive text-sm mt-1">
+						{errors.author.message}
+					</p>
 				)}
 			</div>
 
@@ -121,7 +125,7 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.description && (
-					<p className="text-red-500 text-sm mt-1">
+					<p className="text-destructive text-sm mt-1">
 						{errors.description.message}
 					</p>
 				)}
@@ -145,7 +149,9 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.story && (
-					<p className="text-red-500 text-sm mt-1">{errors.story.message}</p>
+					<p className="text-destructive text-sm mt-1">
+						{errors.story.message}
+					</p>
 				)}
 			</div>
 
@@ -172,7 +178,7 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.panoramaURL && (
-					<p className="text-red-500 text-sm mt-1">
+					<p className="text-destructive text-sm mt-1">
 						{errors.panoramaURL.message}
 					</p>
 				)}
@@ -200,7 +206,7 @@ const AddStoryForm: FC<AddStoryFormProps> = ({ onSuccess }) => {
 					})}
 				/>
 				{errors.panoramaExtraURL && (
-					<p className="text-red-500 text-sm mt-1">
+					<p className="text-destructive text-sm mt-1">
 						{errors.panoramaExtraURL.message}
 					</p>
 				)}

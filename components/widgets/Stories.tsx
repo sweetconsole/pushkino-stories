@@ -8,7 +8,7 @@ const Stories: FC = () => {
 
 	if (isLoading) {
 		return (
-			<div className="flex justify-center items-center min-h-screen">
+			<div className="flex justify-center items-center min-h-[400]">
 				<div className="text-xl">Загрузка историй...</div>
 			</div>
 		)
@@ -16,7 +16,7 @@ const Stories: FC = () => {
 
 	if (error) {
 		return (
-			<div className="flex justify-center items-center min-h-screen text-red-600">
+			<div className="flex justify-center items-center min-h-[400] text-destructive">
 				Ошибка: {error.message}
 			</div>
 		)
@@ -24,8 +24,17 @@ const Stories: FC = () => {
 
 	if (!stories) {
 		return (
-			<div className="flex justify-center items-center min-h-screen">
-				<div className="text-xl">Историй нет</div>
+			<div className="flex flex-col items-center justify-center min-h-[400] text-center px-4">
+				<div className="text-2xl font-bold mb-2">Историй нет</div>
+				<p className="text-muted-foreground mb-6 max-w-md">
+					Будь первым, кто поделится своей 360° историей!
+				</p>
+				<Link
+					className="px-9 py-3 rounded-full font-semibold transition-colors bg-primary text-primary-foreground"
+					href="/add/"
+				>
+					Создать историю
+				</Link>
 			</div>
 		)
 	}
@@ -34,11 +43,11 @@ const Stories: FC = () => {
 		<ul className="grid gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
 			{stories.map((story, index) => (
 				<li
-					className="border bg-card text-card-foreground shadow-sm rounded-2xl shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-soft)] transition-shadow flex flex-col"
+					className="border bg-card text-card-foreground rounded-2xl shadow-card hover:shadow-soft transition-shadow flex flex-col"
 					key={index}
 				>
 					<div className="flex flex-col space-y-1.5 p-6">
-						<h3 className="text-2xl font-semibold leading-none tracking-tight break-words">
+						<h3 className="text-2xl font-semibold leading-none tracking-tight wrap-break-word">
 							{story.title}
 						</h3>
 						<p className="text-sm text-muted-foreground">

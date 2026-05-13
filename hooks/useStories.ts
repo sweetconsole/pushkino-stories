@@ -1,11 +1,11 @@
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { queryClient } from "@/lib/react-query.client"
-import { Story } from "@/types/story"
 import {
 	addStory,
 	getAllStories,
 	getStoryById
-} from "../services/stories/stories.service"
+} from "@/services/stories/stories.service"
+import { Story } from "@/types/story"
 
 export const useStories = () => {
 	return useQuery({

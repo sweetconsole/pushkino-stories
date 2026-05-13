@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { Comfortaa, Nunito } from "next/font/google"
 import { ReactNode } from "react"
-import { comfortaa, nunito } from "@/app/fonts"
 import { Header } from "@/components/widgets"
 import QueryProvider from "@/providers/QueryProvider"
 
@@ -41,6 +41,22 @@ export const metadata: Metadata = {
 		canonical: "https://pushkino-stories.vercel.app/"
 	}
 }
+
+const comfortaa = Comfortaa({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-comfortaa",
+	display: "swap",
+	preload: true,
+	fallback: ["system-ui", "sans-serif"]
+})
+
+const nunito = Nunito({
+	subsets: ["latin", "cyrillic"],
+	variable: "--font-nunito",
+	display: "swap",
+	preload: false,
+	fallback: ["system-ui", "sans-serif"]
+})
 
 export default function RootLayout({
 	children

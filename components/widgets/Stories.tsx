@@ -22,7 +22,7 @@ const Stories: FC = () => {
 		)
 	}
 
-	if (!stories) {
+	if (!stories || stories.length === 0) {
 		return (
 			<div className="flex flex-col items-center justify-center min-h-[400] text-center px-4">
 				<div className="text-2xl font-bold mb-2">Историй нет</div>

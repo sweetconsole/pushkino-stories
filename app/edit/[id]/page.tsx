@@ -31,6 +31,7 @@ const EditStoryPage: FC<EditPageProps> = ({ params }) => {
 		handleSubmit,
 		formState: { errors }
 	} = useForm<StoryFormData>({
+		mode: "onChange",
 		values: story
 			? {
 					title: story.title,

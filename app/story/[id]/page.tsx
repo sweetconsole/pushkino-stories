@@ -42,12 +42,35 @@ const Page: FC<Props> = ({ params }) => {
 
 	return (
 		<article className="wrapper py-6 sm:py-10 max-w-4xl px-4">
-			<Link
-				className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-ring h-10 mb-4 sm:mb-6 rounded-full"
-				href="/"
-			>
-				← Назад ко всем историям
-			</Link>
+			<div className="flex justify-between items-center mb-4 sm:mb-6">
+				<Link
+					className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&amp;_svg]:pointer-events-none [&amp;_svg]:size-4 [&amp;_svg]:shrink-0 hover:text-ring rounded-full"
+					href="/"
+				>
+					← Назад ко всем историям
+				</Link>
+
+				<Link
+					href={`/edit/${story.id}`}
+					className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors bg-primary text-primary-foreground hover:bg-primary"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						strokeWidth="2"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+					>
+						<path d="M17 3l4 4-7 7H10v-4l7-7z" />
+						<path d="M4 20h16" />
+					</svg>
+					Редактировать
+				</Link>
+			</div>
 
 			<div className="flex items-start justify-between gap-3 mb-2 flex-wrap">
 				<h1 className="text-3xl sm:text-4xl font-bold wrap-break-word">

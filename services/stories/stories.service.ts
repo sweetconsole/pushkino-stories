@@ -4,7 +4,8 @@ import {
 	getDoc,
 	getDocs,
 	doc,
-	setDoc
+	setDoc,
+	updateDoc
 } from "firebase/firestore"
 import { db } from "@/lib/firebase.client"
 import { generateStoryId } from "@/services/stories/generateId"
@@ -42,4 +43,16 @@ export const addStory = async (story: Omit<Story, "id">) => {
 		id: customId,
 		...story
 	}
+}
+
+export const updateStory = async (
+	id: string,
+	story: Omit<Story, "id">
+): Promise<Story> => {
+	const storyRef = doc(db, "stories", id)
+	await updateDoc(storyRef, {
+		...story
+	})
+
+	return { id, ...story }
 }

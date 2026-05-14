@@ -3,7 +3,8 @@ import { queryClient } from "@/lib/react-query.client"
 import {
 	addStory,
 	getAllStories,
-	getStoryById
+	getStoryById,
+	updateStory
 } from "@/services/stories/stories.service"
 import { Story } from "@/types/story"
 
@@ -35,6 +36,23 @@ export const useAddStory = () => {
 				...old
 			])
 			queryClient.setQueryData(["story", newStory.id], newStory)
+		}
+	})
+}
+
+export const useUpdateStory = () => {
+	return useMutation({
+		mutationFn: ({ id, ...data }: Story) => updateStory(id, data),
+		onSuccess: updatedStory => {
+			queryClient.setQueryData<Story[]>(["stories"], (old = []) => {
+				return old.map(story =>
+					story.id === updatedStory.id ? updatedStory : story
+				)
+			})
+
+			queryClient.setQueryData(["story", updatedStory.id], updatedStory)
+
+			queryClient.invalidateQueries({ queryKey: ["stories"] })
 		}
 	})
 }
